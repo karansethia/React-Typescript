@@ -1,16 +1,20 @@
-import {type ReactNode, useState} from "react";
+import {type ReactNode} from "react";
 
 type GoalsProps = {
+  id: number;
   title: string;
+  onDeleteGoal: (id: number) => void;
   children: ReactNode;
 };
 
-const Goals = ({title, children}: GoalsProps) => {
+const Goals = ({id, title, children, onDeleteGoal}: GoalsProps) => {
   return (
     <article>
-      <h2>{title}</h2>
-      {children}
-      <button>Delete</button>
+      <div>
+        <h2>{title}</h2>
+        {children}
+      </div>
+      <button onClick={() => onDeleteGoal(id)}>Delete</button>
     </article>
   );
 };
