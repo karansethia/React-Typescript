@@ -1,4 +1,4 @@
-import {type ComponentPropsWithoutRef} from "react";
+import {type ComponentPropsWithoutRef, type ReactNode} from "react";
 
 type ButtonProps = {
   el: "button";
@@ -6,6 +6,7 @@ type ButtonProps = {
 
 type AnchorProps = {
   el: "anchor";
+  children: ReactNode;
 } & ComponentPropsWithoutRef<"a">;
 
 export default function Button(props: ButtonProps | AnchorProps) {
@@ -14,5 +15,9 @@ export default function Button(props: ButtonProps | AnchorProps) {
     return <a className="button" {...props}></a>;
   }
 
-  return <button className="button" {...props}></button>;
+  return (
+    <button className="button" {...props}>
+      {props.children}
+    </button>
+  );
 }

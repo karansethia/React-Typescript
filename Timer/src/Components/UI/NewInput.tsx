@@ -1,5 +1,4 @@
-import {forwardRef} from "react";
-import {ComponentPropsWithoutRef} from "react";
+import React, {type ComponentPropsWithoutRef, forwardRef} from "react";
 
 type NewInputProps = {
   label: string;
@@ -11,7 +10,7 @@ const NewInput = forwardRef<HTMLInputElement, NewInputProps>(
     return (
       <p>
         <label htmlFor={id}>{label}</label>
-        <input {...props} ref={ref} />
+        <input {...props} ref={ref} name={id} />
       </p>
     );
   }

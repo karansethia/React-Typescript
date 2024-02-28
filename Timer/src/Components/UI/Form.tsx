@@ -16,10 +16,13 @@ type FormProps = {
 
 const Form = ({onSave, ...props}: FormProps, ref: Ref<formResetType>) => {
   const formRef = useRef<HTMLFormElement>(null);
+
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData);
+    console.log(data);
+
     onSave(data);
   };
   const reset = () => {
