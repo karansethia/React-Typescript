@@ -31,7 +31,7 @@ type TimerContextProviderProps = {
 // useReducer implementation for adding state to timer context
 const initialState: TimerStateType = {
   timers: [],
-  isRunning: false,
+  isRunning: true,
 };
 type StartTimerType = {
   type: "START_TIMER";
